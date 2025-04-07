@@ -5,24 +5,22 @@ const Navbar = () => {
     <nav className="bg-gray-800 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-lg font-bold">
-          <Link href="/">
-            <a>TCG Pocket Helper</a>
-          </Link>
+          <Link href="/">TCG Pocket Helper</Link>
         </div>
         <ul className="flex space-x-4">
           <li>
-            <Link href="/about">
-              <a className="hover:text-gray-400">About</a>
+            <Link href="/browse">
+              <button className="hover:text-gray-400">Collection</button>
             </Link>
           </li>
           <li>
-            <Link href="/features">
-              <a className="hover:text-gray-400">Features</a>
+            <Link href="/account">
+              <button className="hover:text-gray-400">Account</button>
             </Link>
           </li>
           <li>
             <Link href="/contact">
-              <a className="hover:text-gray-400">Contact</a>
+              <button className="hover:text-gray-400">Contact</button>
             </Link>
           </li>
         </ul>
