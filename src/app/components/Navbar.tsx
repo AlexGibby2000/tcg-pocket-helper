@@ -31,11 +31,22 @@ const Navbar = () => {
             </Link>
           </li>
           <SignedOut>
-            <SignInButton />
-            <SignUpButton />
+            <SignInButton>
+              <button className="hover:text-gray-400">Sign In</button>
+            </SignInButton>
+            <SignUpButton>
+              <button className="hover:text-gray-400">Sign Up</button>
+            </SignUpButton>
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            <UserButton
+              appearance={{
+                elements: {
+                  userButtonAvatarBox:
+                    "hover:ring-1 hover:ring-gray-400 transition", // style avatar
+                },
+              }}
+            />
           </SignedIn>
         </ul>
       </div>
