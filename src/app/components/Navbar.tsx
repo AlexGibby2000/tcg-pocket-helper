@@ -1,11 +1,18 @@
 import Link from "next/link";
-
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 const Navbar = () => {
   return (
-    <nav className="bg-gray-800 text-white p-4">
+    <nav className="text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-lg font-bold">
-          <Link href="/">TCG Pocket Helper</Link>
+          <Link href="/">Pokemon Pocket Helper</Link>
         </div>
         <ul className="flex space-x-4">
           <li>
@@ -23,6 +30,13 @@ const Navbar = () => {
               <button className="hover:text-gray-400">Contact</button>
             </Link>
           </li>
+          <SignedOut>
+            <SignInButton />
+            <SignUpButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </ul>
       </div>
     </nav>
