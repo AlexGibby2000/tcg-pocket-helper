@@ -3,6 +3,7 @@ import {
   ClerkProvider,
   SignInButton,
   SignUpButton,
+  SignOutButton,
   SignedIn,
   SignedOut,
   UserButton,
@@ -39,6 +40,9 @@ const Navbar = () => {
                 <button className="hover:text-gray-400">Account</button>
               </Link>
             </li>
+            <SignOutButton>
+              <button className="hover:text-red-500">Log Out</button>
+            </SignOutButton>
           </SignedIn>
         </ul>
       </div>
