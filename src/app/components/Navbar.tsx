@@ -10,10 +10,14 @@ import {
 } from "@clerk/nextjs";
 const Navbar = () => {
   return (
-    <nav className="text-white p-4">
+    <nav className="text-red-700 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-lg font-bold">
-          <Link href="/">Pokemon Pocket Helper</Link>
+          <Link href="/">
+            <button className="hover:text-gray-400">
+              Pocket Trainer Tactics
+            </button>
+          </Link>
         </div>
         <ul className="flex space-x-4">
           <li>
