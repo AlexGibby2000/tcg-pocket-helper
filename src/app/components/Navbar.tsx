@@ -21,13 +21,8 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/account">
-              <button className="hover:text-gray-400">Account</button>
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact">
-              <button className="hover:text-gray-400">Contact</button>
+            <Link href="/builder">
+              <button className="hover:text-gray-400">Deck Builder</button>
             </Link>
           </li>
           <SignedOut>
@@ -39,14 +34,11 @@ const Navbar = () => {
             </SignUpButton>
           </SignedOut>
           <SignedIn>
-            <UserButton
-              appearance={{
-                elements: {
-                  userButtonAvatarBox:
-                    "hover:ring-1 hover:ring-gray-400 transition", // style avatar
-                },
-              }}
-            />
+            <li>
+              <Link href="/account">
+                <button className="hover:text-gray-400">Account</button>
+              </Link>
+            </li>
           </SignedIn>
         </ul>
       </div>
