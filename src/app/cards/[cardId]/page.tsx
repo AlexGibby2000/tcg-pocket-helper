@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import supabase from "@/lib/supabaseClient";
 import { notFound } from "next/navigation";
 
 export default async function CardPage({
@@ -6,15 +6,21 @@ export default async function CardPage({
 }: {
   params: { cardId: string };
 }) {
-  const card = await Prisma.card.findUnique({
-    where: { id: params.cardId },
-    include: { attacks: true },
-  });
-  if (!card) return notFound();
+  const cardData = await fetchCardData(params.cardId);
+  if (!cardData) return notFound();
   return (
     <div>
-      <h1>{card.name}</h1>
+      <h1>{cardData.name}</h1>
       {/*Render card data here*/}
     </div>
   );
+}
+
+async function fetchCardData(cardId: string) {
+  const { data: card, error } = await supabase
+    .from("cards")
+    .select("*, attacks(*)")
+    .eq("id", cardId)
+    .single();
+  return error ? null : card;
 }
