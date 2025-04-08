@@ -12,3 +12,34 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Card{
+  id        String  @id @default(cuid())
+  name      String
+  imageUrl  String
+  types     String[]
+  attacks   Attack[]
+  decks     DeckCard[]
+}
+
+model Attack{
+  id        String  @id @default(cuid())
+  name      String
+  damage    String?
+  card      Card    @relation(fields: [cardId], references: [id])
+  cardId    String
+}
+
+model Deck{
+  id        String  @id @default(cuid())
+  name      String
+  cards     DeckCard[]
+}
+
+model DeckCard{
+  id        String  @id @default(cuid())
+  deck      Deck    @relation(fields: [deckId], references: [id])
+  deckId    String
+  card      Card    @relation(fields: [cardId], references: [id])
+  cardId    String
+}
