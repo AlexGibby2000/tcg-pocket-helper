@@ -49,8 +49,8 @@ export default function Navbar() {
         </SignedOut>
 
         <SignedIn>
-          <div className="cursor-pointer">
-            <UserButton afterSignOutUrl="/" />
+          <div className="w-8 h-8 rounded-full">
+            <UserButton />
           </div>
 
           {/* Dropdown */}

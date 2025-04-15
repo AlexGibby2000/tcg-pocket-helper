@@ -24,3 +24,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.cl-avatarBox {
+  width: 2rem;
+  height: 2rem;
+}
