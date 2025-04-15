@@ -15,19 +15,19 @@ export default function Navbar() {
       <div className="flex items-center space-x-6">
         <div className="w-6 h-6 bg-red-600 rounded-sm"></div>
         <Link
-          href="#"
+          href="/decks"
           className="uppercase text-sm transition-colors duration-200 hover:text-red-500"
         >
           Decks
         </Link>
         <Link
-          href="#"
+          href="/builder"
           className="uppercase text-sm transition-colors duration-200 hover:text-red-500"
         >
           Deck Builder
         </Link>
         <Link
-          href="#"
+          href="/cards"
           className="uppercase text-sm transition-colors duration-200 hover:text-red-500"
         >
           Cards
@@ -71,7 +71,7 @@ export default function Navbar() {
               My Collection
             </Link>
             <Link
-              href="/profile"
+              href="/account"
               className="text-left px-3 py-1.5 hover:bg-gray-100 rounded-md w-full"
             >
               Profile
