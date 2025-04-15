@@ -13,7 +13,11 @@ export default function Navbar() {
     <nav className="bg-black text-white px-4 py-3 flex items-center justify-between">
       {/* Left nav items */}
       <div className="flex items-center space-x-6">
-        <div className="w-6 h-6 bg-red-600 rounded-sm"></div>
+        <Link href="/">
+          <div className="w-6 h-6 bg-red-600 rounded-sm"></div>
+          {/* Logo
+          Placeholder */}
+        </Link>
         <Link
           href="/decks"
           className="uppercase text-sm transition-colors duration-200 hover:text-red-500"
