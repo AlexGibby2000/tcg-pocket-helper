@@ -8,50 +8,40 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
-const Navbar = () => {
+export default function Navbar() {
   return (
-    <nav className="text-white-800 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-lg font-bold">
-          <Link href="/">
-            <button className="hover:text-purple-600">
-              Pocket Trainer Tactics
-            </button>
-          </Link>
-        </div>
-        <ul className="flex space-x-4">
-          <li>
-            <Link href="/browse">
-              <button className="hover:text-red-600">Collection</button>
-            </Link>
-          </li>
-          <li>
-            <Link href="/builder">
-              <button className="hover:text-blue-400">Deck Builder</button>
-            </Link>
-          </li>
-          <SignedOut>
-            <SignInButton>
-              <button className="hover:text-yellow-400">Sign In</button>
+    <nav className="bg-black text-white px-4 py-3 flex items-center justify-between">
+      <div className="flex items-center space-x-6">
+        <div className="w-6 h-6 bg-red-600 rounded-sm"></div>
+        <a href="#" className="uppercase text-sm hover:underline">
+          Decks
+        </a>
+        <a href="#" className="uppercase text-sm hover:underline">
+          Deck Builder
+        </a>
+        <a href="#" className="uppercase text-sm hover:underline">
+          Cards
+        </a>
+      </div>
+      <div className="relative group">
+        <SignedIn>
+          <UserButton afterSignOutUrl="/" />
+          {/* Use Clerk UserButton for profile picture + menu */}
+        </SignedIn>
+        <SignedOut>
+          <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center cursor-pointer">
+            <span className="text-white text-lg font-bold">?</span>
+          </div>
+          <div className="absolute right-0 mt-2 hidden group-hover:block bg-white text-black shadow-md rounded-md py-2 px-4">
+            <SignInButton mode="modal">
+              <button className="block w-full text-left">Sign In</button>
             </SignInButton>
-            <SignUpButton>
-              <button className="hover:text-pink-400">Sign Up</button>
-            </SignUpButton>
-          </SignedOut>
-          <SignedIn>
-            <li>
-              <Link href="/account">
-                <button className="hover:text-yellow-400">Account</button>
-              </Link>
-            </li>
-            <SignOutButton>
-              <button className="hover:text-red-500">Log Out</button>
-            </SignOutButton>
-          </SignedIn>
-        </ul>
+            <SignInButton mode="modal">
+              <button className="block w-full text-left">Sign Up</button>
+            </SignInButton>
+          </div>
+        </SignedOut>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
