@@ -14,13 +14,22 @@ export default function Navbar() {
       {/* Left nav items */}
       <div className="flex items-center space-x-6">
         <div className="w-6 h-6 bg-red-600 rounded-sm"></div>
-        <Link href="#" className="uppercase text-sm hover:underline">
+        <Link
+          href="#"
+          className="uppercase text-sm transition-colors duration-200 hover:text-red-500"
+        >
           Decks
         </Link>
-        <Link href="#" className="uppercase text-sm hover:underline">
+        <Link
+          href="#"
+          className="uppercase text-sm transition-colors duration-200 hover:text-red-500"
+        >
           Deck Builder
         </Link>
-        <Link href="#" className="uppercase text-sm hover:underline">
+        <Link
+          href="#"
+          className="uppercase text-sm transition-colors duration-200 hover:text-red-500"
+        >
           Cards
         </Link>
       </div>
