@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  ClerkProvider,
   SignInButton,
   SignUpButton,
   SignOutButton,
@@ -8,39 +7,79 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+
 export default function Navbar() {
   return (
     <nav className="bg-black text-white px-4 py-3 flex items-center justify-between">
+      {/* Left nav items */}
       <div className="flex items-center space-x-6">
         <div className="w-6 h-6 bg-red-600 rounded-sm"></div>
-        <a href="#" className="uppercase text-sm hover:underline">
+        <Link href="#" className="uppercase text-sm hover:underline">
           Decks
-        </a>
-        <a href="#" className="uppercase text-sm hover:underline">
+        </Link>
+        <Link href="#" className="uppercase text-sm hover:underline">
           Deck Builder
-        </a>
-        <a href="#" className="uppercase text-sm hover:underline">
+        </Link>
+        <Link href="#" className="uppercase text-sm hover:underline">
           Cards
-        </a>
+        </Link>
       </div>
+
+      {/* Right side profile + dropdown */}
       <div className="relative group">
-        <SignedIn>
-          <UserButton afterSignOutUrl="/" />
-          {/* Use Clerk UserButton for profile picture + menu */}
-        </SignedIn>
+        {/* Trigger Icon */}
         <SignedOut>
           <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center cursor-pointer">
             <span className="text-white text-lg font-bold">?</span>
           </div>
-          <div className="absolute right-0 mt-2 hidden group-hover:block bg-white text-black shadow-md rounded-md py-2 px-4">
+
+          {/* Dropdown */}
+          <div className="absolute right-0 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-1 flex flex-col bg-white text-black shadow-md rounded-lg py-2 px-3 z-10 min-w-[140px] space-y-1 text-sm font-medium">
             <SignInButton mode="modal">
-              <button className="block w-full text-left">Sign In</button>
+              <button className="text-left px-3 py-1.5 hover:bg-gray-100 rounded-md w-full">
+                Sign In
+              </button>
             </SignInButton>
-            <SignInButton mode="modal">
-              <button className="block w-full text-left">Sign Up</button>
-            </SignInButton>
+            <SignUpButton mode="modal">
+              <button className="text-left px-3 py-1.5 hover:bg-gray-100 rounded-md w-full">
+                Sign Up
+              </button>
+            </SignUpButton>
           </div>
         </SignedOut>
+
+        <SignedIn>
+          <div className="cursor-pointer">
+            <UserButton afterSignOutUrl="/" />
+          </div>
+
+          {/* Dropdown */}
+          <div className="absolute right-0 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-1 flex flex-col bg-white text-black shadow-md rounded-lg py-2 px-3 z-10 min-w-[160px] space-y-1 text-sm font-medium">
+            <Link
+              href="/collection"
+              className="text-left px-3 py-1.5 hover:bg-gray-100 rounded-md w-full"
+            >
+              My Collection
+            </Link>
+            <Link
+              href="/profile"
+              className="text-left px-3 py-1.5 hover:bg-gray-100 rounded-md w-full"
+            >
+              Profile
+            </Link>
+            <Link
+              href="/my-decks"
+              className="text-left px-3 py-1.5 hover:bg-gray-100 rounded-md w-full"
+            >
+              My Decks
+            </Link>
+            <SignOutButton>
+              <button className="text-left px-3 py-1.5 hover:bg-gray-100 rounded-md w-full">
+                Log Out
+              </button>
+            </SignOutButton>
+          </div>
+        </SignedIn>
       </div>
     </nav>
   );
