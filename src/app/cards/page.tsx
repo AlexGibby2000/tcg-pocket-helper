@@ -1,8 +1,6 @@
 import CardGrid from "@/components/CardGrid";
 import CardSearch from "@/components/CardSearch";
 import CardFilter from "@/components/CardFilter";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 const mockCards = [
   {
@@ -24,14 +22,12 @@ const mockCards = [
 export default function CardBrowserPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
       <main className="flex-grow p-4 max-w-7xl mx-auto">
         <h1 className="text-2xl font-bold mb-4">Card Browser</h1>
         <CardSearch />
         <CardFilter />
         <CardGrid cards={mockCards} />
       </main>
-      <Footer />
     </div>
   );
 }
